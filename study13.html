@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtname" name="textname"><br>
+    <button id="btnGet">Start</button>%nbsp;<button id="btnStop">Stop</button>
+    <br>
+    <br>
+    <input type="text" id="txtname2" name="txtname2" size="50";>
+
+</body>
+<script>
+    let button = document.getElementById('btnGet');//id를 이용해서 태그를 알아냄
+    let button2 = document.getElementById('btnStop');
+    let clock=null;//전역변수 
+
+    button.addEventListener('click',function(){
+       let textbox2=document.getElementById('txtname2');
+       clock=setInterval(function(){
+        let now = new Date();
+        textbox2.value = now;
+       },1000);
+    });
+    button2.addEventListener('click',function(){
+        if(clock==null){
+            alert('시작 먼저 하시오.');
+        } else{
+            clearInterval(clock);
+            alert('끝났습니다.');
+            let textbox2=document.getElementById('txtname2');
+            textbox2.value ='';
+        }
+    })
+
+
+    
+</script>
+</html>
