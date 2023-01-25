@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{
+        width:40px; height:40px;text-align:center;
+    }
+</style>
+<body>
+    <table id="tblData" border="1">
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+        <td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    </table>
+    <button id="btnStart">Start</button>
+</body>
+<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+let num=0;
+$(document)
+// .on('click','td',function(){//on은 파라미터로 함수를 사용  
+//     if($(this).text()=='') $(this).text(num++);  
+// })
+.on('click','#btnStart',function(){
+    num=1;
+    for(i=0;i<$('#tblData tr').length; i++){
+        if(i%2==0){
+            for(j=0; j<$('#tblData tr:eq(0) td').length; j++){
+               $('#tblData tr:eq('+i+') td:eq('+j+')').text(num++);
+            }
+
+        }else{ 
+            for(j=$('#tblData tr:eq(0) td').length-1; j>=0; j--){
+               $('#tblData tr:eq('+i+') td:eq('+j+')').text(num++);
+            }
+
+        }
+    }
+    // num=1;
+    // $('#tblData tr').each(function(){
+    //     $(this).find('td').each(function(){
+    //         $(this).text(num++);
+    //     })
+    // })
+})
+
+</script>
+</html>

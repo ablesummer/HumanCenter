@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table{border-collapse:collapse;}
+    td{border:1px solid blue;}
+</style>
+<body>
+    <lable>이름</lable><input type="text" id="name"><br>
+    <lable>모바일</lable><input type="text" id="mobile"><br><br>
+    <button id="btnInput">추가</button>
+    <hr>
+    <table>
+        <tr><td>이름</td><td>모바일</td></tr>
+    </table>
+</body>
+<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+    $(document)
+    .on('click','#btnInput',function(){
+        // name과 mobile에 입력된 내용을 table 하단에 추가
+        // name, mobile을 비운다 =''빈 문자열 넣기 //input tag는.val()로 꺼내온다. 
+        let name = $('#name').val();
+        let mobile = $('#mobile').val();
+        let str='<tr><td>'+name+'</td><td>'+mobile+'</td></tr>';
+        $('table').append(str);
+        $('#name').val('');
+        $('#mobile').val('');
+    })
+      
+</script>
+</html>
