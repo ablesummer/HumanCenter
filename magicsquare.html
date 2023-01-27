@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    td{
+        width:40px; height:40px;text-align:center; border :1px solid black;
+    }
+</style>
+<body>
+    <button id="btnStart">Start</button>
+</body>
+<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+<script>
+$(document)
+.on('click','#btnStart',function(){
+    m=prompt('행 갯수를 입력하시오');
+    m=parseInt(m);
+    n=prompt('열 갯수를 입력하시오');
+    n=parseInt(n);
+    tdstr='';
+    str='';
+        for(j=0; j<m; j++){
+            str+='<tr>'
+                for(i=0; i<n; i++){
+                    str+='<td></td>'
+                }
+            str+='</tr>'
+            }
+    $(this).before('<table id=tblData border="1">'+str+'</table>');
+    
+
+     i = m-1;//행
+     j= (n-1)/2;//열 
+    
+
+    for(num=1;num<=m*n;num++){
+        $('#tblData tr:eq('+i+') td:eq('+j+')').text(num);
+        i++;
+        j--;
+        if(i>m-1){i=0;}
+        if(!$('#tblData tr:eq('+i+') td:eq('+j+')').text()==''){i=i-2;j=j+1;}
+        if(j<0){j=m-1;}
+
+        
+    }
+
+
+ // 선생님 풀이 코드 
+//  i=m-1;
+//  j=(m-1)/2;
+
+//  for(num=1; num<=m*n; num++){
+//      $(sel(i,j)).text(num);
+//      i++; j--;
+//      if(i>m-1 && j<0) || $(sel((i,j)).text()!=''){
+//       i-=2; j++;
+//      } else if(j<0){
+//             j=m-1;
+//      } else if(i>m-1){
+//           i=0;
+//      }
+//    } 
+ 
+// })
+//  function sel(x,y){
+//     return '#tblData tr:eq('+x+') td:eq('+y+')'
+//  }
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

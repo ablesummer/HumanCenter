@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name">&nbsp;<label id="lblName"></label><br>
+    <input type="password" id="passcode">&nbsp;<label id ="lblPwd"></label><br>
+    <input type="button" id="btnLogin" value="Login">
+    <select id="country" size="7">
+        <option>대한민국</option>
+        <option>쌀국</option>
+        <option>불란서</option>
+        <option>화란</option>
+        <option>서반아</option>
+        <option>비울빈</option>
+    </select><br><br>
+    <textarea id="txtara" row="40" cols="40"></textarea>
+</body>
+<script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+<script language="javascript">
+$(document)
+.on('change','#name',function(){
+    $('#txtara').append('change TEXT\n');
+
+})
+.on('blur','#name',function(){
+    $('#txtara').append('blur TEXT\n');
+})
+.on('click','#country',function (){
+    $('#txtara').append('click on Country\n')
+
+})
+.on('change','#country',function(){//text, select, textarea
+    $('#txtara').append('change on Country\n')
+})
+</script>
+</html>
